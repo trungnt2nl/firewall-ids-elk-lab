@@ -1,0 +1,15 @@
+# /etc/netplan/00-installer-config.yaml tren Ubuntu ELK (dat IP tinh trong LAN pfSense)
+# Doi "ens33" va macaddress cho dung card cua ban.
+network:
+  version: 2
+  ethernets:
+    ens33:
+      dhcp4: false
+      dhcp6: false
+      addresses:
+        - 192.168.50.20/24
+      routes:
+        - to: default
+          via: 192.168.50.1
+      nameservers:
+        addresses: [192.168.50.1, 8.8.8.8]

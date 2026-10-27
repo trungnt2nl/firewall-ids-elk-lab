@@ -1,0 +1,6 @@
+# Rule tu viet cho lab (Suricata tren pfSense, interface WAN)
+# Cau truc: action protocol src_ip src_port -> dst_ip dst_port (options)
+# Dich la "any" vi tren WAN, Suricata thay dich la IP WAN cua pfSense (chua bi DNAT).
+alert tcp any any -> any 23 (msg:"LAB Telnet SYN to port 23"; flow:to_server; flags:S,12; classtype:attempted-recon; sid:1000001; rev:2;)
+alert tcp any any -> any 23 (msg:"LAB Telnet session established"; flow:to_server,established; threshold:type limit, track by_src, count 1, seconds 60; classtype:policy-violation; sid:1000002; rev:2;)
+alert tcp any any -> any any (msg:"LAB Possible TCP port scan"; flags:S,12; threshold:type both, track by_src, count 20, seconds 5; classtype:attempted-recon; sid:1000003; rev:2;)

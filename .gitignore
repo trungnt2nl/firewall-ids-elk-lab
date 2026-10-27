@@ -1,0 +1,15 @@
+# Khong dua thong tin nhay cam len GitHub
+*.lic
+*.key
+*.pem
+*.env
+.env
+*password*
+*secret*
+config.xml
+*.pcap
+*.pcapng
+# Du lieu Docker / Elasticsearch
+esdata/
+.DS_Store
+Thumbs.db

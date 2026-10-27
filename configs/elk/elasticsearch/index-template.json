@@ -1,0 +1,23 @@
+{
+  "index_patterns": ["pfsense-parsed-*"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "src_ip":   { "type": "ip", "ignore_malformed": true },
+        "dst_ip":   { "type": "ip", "ignore_malformed": true },
+        "src_port": { "type": "integer", "ignore_malformed": true },
+        "dst_port": { "type": "integer", "ignore_malformed": true },
+        "priority": { "type": "integer", "ignore_malformed": true },
+        "sid":      { "type": "keyword" },
+        "alert_msg":      { "type": "keyword" },
+        "classification": { "type": "keyword" },
+        "program":   { "type": "keyword" },
+        "log_type":  { "type": "keyword" },
+        "action":    { "type": "keyword" },
+        "direction": { "type": "keyword" },
+        "protocol":  { "type": "keyword" },
+        "interface": { "type": "keyword" }
+      }
+    }
+  }
+}
